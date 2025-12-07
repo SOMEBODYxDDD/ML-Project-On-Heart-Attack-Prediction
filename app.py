@@ -1,13 +1,12 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from catboost import CatBoostClassifier
+import joblib
 st.set_page_config(
     page_title="Heart Disease Risk Prediction System",
     layout="wide"
 )
-model= CatBoostClassifier()
-model.load_model('heart_disease_model.cbm')
+model = joblib.load('Heart_disease_model.pkl')
 age_map = {
     '18-24': 21, '25-29': 27, '30-34': 32, '35-39': 37, 
     '40-44': 42, '45-49': 47, '50-54': 52, '55-59': 57, 
